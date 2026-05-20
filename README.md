@@ -1,74 +1,9 @@
-# AviUtl プラグイン - シーン簡単選択
+# Plugin per AviUtl - Selezione rapida delle scene (SelectScene)
 
-シーンを簡単に切り替えられるようにします。
-[最新バージョンをダウンロード](../../releases/latest/)
+## Il plugin originale è di (hebiiro)[https://github.com/hebiiro/AviUtl-Plugin-SelectScene], tutti i crediti a lui
 
-## 導入方法
+### Questo plugin fa parte di AUTP (AviUtl Translation Project)
 
-以下のファイルを AviUtl の Plugins フォルダに入れてください。
-* SelectScene.auf
-* SelectScene (フォルダ) (ボイスが必要な場合のみ)
+#### Cosa è AUTP?
+A.U.T.P (AviUtl Translation Project) è un progetto che ho iniziato io con degli amici per cercare di portare AviUtl a più lingue possibili per renderlo più facile da usare.
 
-## 使用方法
-
-1. メニューの「表示」→「シーン簡単選択の表示」を選択してウィンドウを表示します。
-2. ウィンドウに並んでいるボタンを押してシーンを切り替えます。
-
-## 設定方法
-
-1. ウィンドウを右クリックしてコンテキストメニューを表示します。
-2. 「設定」を選択します。
-3. ダイアログが表示されるので行数などを設定します。<br>
-
-* ```レイアウトモード```
-	* ```垂直方向``` 縦に ```行数``` 分だけ並んだあと、次の列に改行します。
-	* ```水平方向``` 横に ```列数``` 分だけ並んだあと、次の行に改行します。
-* ```シーン数``` 表示するシーンの数 (ボタンの数) を指定します。
-* ```ボイス``` 再生する wav ファイルを番号で指定します。スピンボタンで変更したときプレビューが再生されます。
-* ```固定サイズ``` ウィンドウを固定サイズにします。AviUtl を再起動する必要があります。
-	* ```ボタンの幅``` ボタンの幅を指定します。
-	* ```ボタンの高さ``` ボタンの高さを指定します。
-
-## ボイス
-
-SelectScene フォルダ内の wav ファイルが再生されます。<br>
-※ [WavPlayer](../../../WavPlayer/) を導入する必要があります。
-
-* 0 ボイスなし
-* 1 青山龍星（ノーマル）シーンを変更しました
-* 2 波音リツ（ノーマル）シーンを変更しました
-* 3 九州そら（ささやき）シーン、変更しちゃいました
-* 4 青山龍星（ノーマル）お嬢様、っシーンの変更が完了致しました
-* 5 波音リツ（ノーマル）シーン変えといたぞっブタヤローオ
-* 6 九州そら（ささやき）ばああか、ざああこ
-* 7 ~ 10 空き
-
-## 更新履歴
-
-* 2.1.1 - 2023/02/20 WavPlayer が存在しないときにエラーメッセージが出ていた問題を修正
-* 2.1.0 - 2023/01/07 音を外部プロセスで鳴らすように変更
-* 2.0.0 - 2022/08/02 ウィンドウサイズを固定できる機能を追加
-* 1.1.0 - 2022/08/01 シーンの数を制限できるように修正
-* 1.0.0 - 2022/07/21 初版
-
-## 動作確認
-
-* (必須) AviUtl 1.10 & 拡張編集 0.92 http://spring-fragrance.mints.ne.jp/aviutl/
-* (共存確認) patch.aul r42 https://scrapbox.io/ePi5131/patch.aul
-
-## クレジット
-
-* Microsoft Research Detours Package https://github.com/microsoft/Detours
-* aviutl_exedit_sdk https://github.com/ePi5131/aviutl_exedit_sdk
-* Common Library https://github.com/hebiiro/Common-Library
-* VOICEVOX (青山龍星、波音リツ、九州そら) https://voicevox.hiroshiba.jp/
-
-## 作成者情報
- 
-* 作成者 - 蛇色 (へびいろ)
-* GitHub - https://github.com/hebiiro
-* Twitter - https://twitter.com/io_hebiiro
-
-## 免責事項
-
-この作成物および同梱物を使用したことによって生じたすべての障害・損害・不具合等に関しては、私と私の関係者および私の所属するいかなる団体・組織とも、一切の責任を負いません。各自の責任においてご使用ください。
