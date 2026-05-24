@@ -224,7 +224,7 @@ void onPaint(HWND hwnd, AviUtl::EditHandle* editp, AviUtl::FilterPlugin* fp)
 		else
 		{
 			if (sceneIndex == 0)
-				::StringCbCopyW(text, sizeof(text), L"Radice");
+				::StringCbCopyW(text, sizeof(text), L"Root");
 			else
 				::StringCbPrintfW(text, sizeof(text), L"%d", sceneIndex);
 		}
@@ -270,7 +270,7 @@ void onContextMenu(HWND hwnd)
 
 	HMENU menu = ::CreatePopupMenu();
 
-	::AppendMenu(menu, MF_STRING, CommandID::CONFIG, _T("Preferenze"));
+	::AppendMenu(menu, MF_STRING, CommandID::CONFIG, _T("Settings"));
 
 	int id = ::TrackPopupMenu(menu, TPM_NONOTIFY | TPM_RETURNCMD, cursorPos.x, cursorPos.y, 0, hwnd, 0);
 
@@ -301,8 +301,8 @@ void onConfigDialog(HWND hwnd)
 	::SendDlgItemMessage(dialog, IDC_VOICE_SPIN, UDM_SETRANGE32, 0, 10);
 
 	HWND hwndLayoutMode = ::GetDlgItem(dialog, IDC_LAYOUT_MODE);
-	ComboBox_AddString(hwndLayoutMode, _T("Verticale"));
-	ComboBox_AddString(hwndLayoutMode, _T("Orizzontale"));
+	ComboBox_AddString(hwndLayoutMode, _T("Vertical"));
+	ComboBox_AddString(hwndLayoutMode, _T("Horizontal"));
 	ComboBox_SetCurSel(hwndLayoutMode, g_layoutMode);
 	::SetDlgItemInt(dialog, IDC_ROW_COUNT, g_rowCount, FALSE);
 	::SetDlgItemInt(dialog, IDC_COL_COUNT, g_colCount, FALSE);

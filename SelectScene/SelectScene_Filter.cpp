@@ -116,36 +116,31 @@ BOOL func_WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam, AviUtl:
 		{
 			MY_TRACE(_T("func_WndProc(WM_LBUTTONUP, 0x%08X, 0x%08X)\n"), wParam, lParam);
 
-			// Ottieni le coordinate del cursore del mouse.
+			// get mouse coords
 			POINT point = LP2PT(lParam);
 
-			// Se la cattura del mouse è attiva
+			// if mouse capture is active
 			if (::GetCapture() == hwnd)
 			{
-				// Termina la cattura del mouse.
+				// stop mouse capture
 				::ReleaseCapture();
 
-				// Ottieni la scena evidenziata.
+				// get highlighted scene
 				g_hotScene = hitTest(hwnd, point);
 				MY_TRACE_INT(g_hotScene);
 
-				// Se la scena trascinata e la scena evidenziata sono uguali
+				// if dragged scene and highlited scene are the same
 				if (g_dragScene == g_hotScene)
 				{
-					// Se la scena trascinata è valida e diversa dalla scena attuale
+					// if dragged scene is different from selected one
 					if (isSceneIndexValid(g_dragScene) && g_dragScene != g_auin.GetCurrentSceneIndex())
 					{
 						playVoice(g_voice);
 
-						// Il pulsante è stato premuto, quindi cambia scena.
+						// button has been pressed to lets change scene
 
-						// Vedendo se il filtro esiste effettivamente
-						AviUtl::FilterPlugin* exeditFilter = g_auin.GetFilter(fp, "Mod.Avan");
-
-						if (exeditFilter == nullptr)
-							// andando in fallback con un altro if statement 
-							AviUtl::FilterPlugin* exeditFilter = g_auin.GetFilter(fp, "Adv.Edit");
-						
+						// seeing if filter is there
+						AviUtl::FilterPlugin* exeditFilter = g_auin.GetFilter(fp, "Adv.Edit");
 
 						if (exeditFilter == nullptr)
 							AviUtl::FilterPlugin* exeditFilter = g_auin.GetFilter(fp, "Advanced Editing");
@@ -153,21 +148,21 @@ BOOL func_WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam, AviUtl:
 						
 						if (exeditFilter == nullptr)
 							MessageBoxA(hwnd,
-								"Impossibile trovare la finestra di Exedit con i titoli: (Mod.Avan/Adv.Edit/Advanced Editing)",
-								"Errore di SelectScene", MB_OK | MB_ICONERROR);
+								"Couldn't find an Exedit window with the following titles: Adv.Edit/Advanced Editing",
+								"SelectScene Error", MB_OK | MB_ICONERROR);
 							break;
 						
 						g_auin.SetScene(g_dragScene, exeditFilter, editp);
 
-						// Ridisegna la finestra di anteprima di AviUtl.
+						// drawing the aviutl preview window again
 						::PostMessage(hwnd, AviUtl::FilterPlugin::WindowMessage::Command, 0, 0);
 					}
 				}
 
-				// Reimposta la scena trascinata al valore iniziale.
+				// set the dragged scene to its initial value
 				g_dragScene = -1;
 
-				// Ridisegna.
+				// draw again
 				onPaint(hwnd, editp, fp);
 			}
 
@@ -293,7 +288,7 @@ extern AviUtl::FilterPluginDLL* WINAPI GetFilterTable()
 	loadConfig();
 
 	LPCSTR name = "SelectScene";
-	LPCSTR information = "SelectScene 2.1.1 by hebiiro, tradotto da Redlean";
+	LPCSTR information = "SelectScene 2.1.1 by hebiiro, translated by Murderer";
 
 	static AviUtl::FilterPluginDLL filter =
 	{
