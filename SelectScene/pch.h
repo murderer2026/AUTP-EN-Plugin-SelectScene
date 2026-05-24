@@ -34,4 +34,3 @@
 #include "Common/Hook.h"
 #include "Common/AviUtlInternal.h"
 #include "Detours.4.0.1/detours.h"
-#pragma comment(lib, "Detours.4.0.1/detours.lib")

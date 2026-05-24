@@ -1,12 +1,12 @@
 ﻿#include "pch.h"
 #include "ConfigDialog.h"
 #include "SelectScene.h"
-
+#include <Common/Dialog.h>
 //---------------------------------------------------------------------
 
 ConfigDialog::ConfigDialog(HWND hwnd)
-	: Dialog(g_instance, MAKEINTRESOURCE(IDD_CONFIG), hwnd)
 {
+	create(g_instance, MAKEINTRESOURCE(IDD_CONFIG), hwnd);
 }
 
 void ConfigDialog::onOK()

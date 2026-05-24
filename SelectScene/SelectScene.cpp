@@ -4,7 +4,7 @@
 
 //--------------------------------------------------------------------
 
-// デバッグ用コールバック関数。デバッグメッセージを出力する。
+// Funzione di callback per il debug. Invia un messaggio di debug.
 void ___outputLog(LPCTSTR text, LPCTSTR output)
 {
 	::OutputDebugString(output);
@@ -35,13 +35,13 @@ void playVoice(int voice)
 {
 	if (voice == 0) return;
 
-	// フォルダ名を取得する。
+	// Ottieni il nome della cartella.
 	TCHAR folderName[MAX_PATH] = {};
 	::GetModuleFileName(g_instance, folderName, MAX_PATH);
 	::PathRemoveExtension(folderName);
 	MY_TRACE_TSTR(folderName);
 
-	// wav ファイルのパスを取得する。
+	// Ottieni il percorso del file WAV.
 	TCHAR wavFileName[MAX_PATH] = {};
 	::StringCbPrintf(wavFileName, sizeof(wavFileName), _T("%s\\%d.wav"), folderName, voice);
 	MY_TRACE_TSTR(wavFileName);
@@ -54,7 +54,7 @@ void playVoice(int voice)
 void calcLayout(HWND hwnd, BOOL onSize)
 {
 	if (onSize && g_fixedSize)
-		return; // 固定サイズの場合は WM_SIZE では何もしない。
+		return; // In modalità a dimensione fissa, non fare nulla su WM_SIZE.
 
 	switch (g_layoutMode)
 	{
@@ -202,7 +202,7 @@ void onPaint(HWND hwnd, AviUtl::EditHandle* editp, AviUtl::FilterPlugin* fp)
 	GdiObjSelector fontSelector(dc, si.hfont);
 
 	{
-		// 背景を塗りつぶす。
+		// Riempi lo sfondo.
 		HBRUSH brush = (HBRUSH)::SendMessage(hwnd, WM_CTLCOLORDLG, (WPARAM)(HDC)dc, (LPARAM)hwnd);
 		::FillRect(dc, &clientRect, brush);
 	}
@@ -212,7 +212,7 @@ void onPaint(HWND hwnd, AviUtl::EditHandle* editp, AviUtl::FilterPlugin* fp)
 		int sceneIndex = i;
 		const RECT& rc = g_buttonRectArray[i];
 
-		// 描画するテキストを取得する。
+		// Ottieni il testo da disegnare.
 		WCHAR text[MAX_PATH] = {};
 
 		ExEdit::SceneSetting* scene = g_auin.GetSceneSetting(sceneIndex);
@@ -224,12 +224,12 @@ void onPaint(HWND hwnd, AviUtl::EditHandle* editp, AviUtl::FilterPlugin* fp)
 		else
 		{
 			if (sceneIndex == 0)
-				::StringCbCopyW(text, sizeof(text), L"Root");
+				::StringCbCopyW(text, sizeof(text), L"Radice");
 			else
 				::StringCbPrintfW(text, sizeof(text), L"%d", sceneIndex);
 		}
 
-		// パートとステートを取得する。
+		// Ottieni il part e lo state.
 		int partId = BP_PUSHBUTTON;
 		int stateId = PBS_NORMAL;
 
@@ -253,7 +253,7 @@ void onPaint(HWND hwnd, AviUtl::EditHandle* editp, AviUtl::FilterPlugin* fp)
 			stateId = PBS_HOT;
 		}
 
-		// テーマを使用して描画する。
+		// Disegna usando il tema.
 		::DrawThemeBackground(g_themeButton, dc, partId, stateId, &rc, 0);
 		::DrawThemeText(g_themeButton, dc, partId, stateId,
 			text, ::lstrlenW(text), DT_CENTER | DT_VCENTER | DT_SINGLELINE, 0, &rc);
@@ -270,7 +270,7 @@ void onContextMenu(HWND hwnd)
 
 	HMENU menu = ::CreatePopupMenu();
 
-	::AppendMenu(menu, MF_STRING, CommandID::CONFIG, _T("設定"));
+	::AppendMenu(menu, MF_STRING, CommandID::CONFIG, _T("Preferenze"));
 
 	int id = ::TrackPopupMenu(menu, TPM_NONOTIFY | TPM_RETURNCMD, cursorPos.x, cursorPos.y, 0, hwnd, 0);
 
@@ -301,8 +301,8 @@ void onConfigDialog(HWND hwnd)
 	::SendDlgItemMessage(dialog, IDC_VOICE_SPIN, UDM_SETRANGE32, 0, 10);
 
 	HWND hwndLayoutMode = ::GetDlgItem(dialog, IDC_LAYOUT_MODE);
-	ComboBox_AddString(hwndLayoutMode, _T("垂直方向"));
-	ComboBox_AddString(hwndLayoutMode, _T("水平方向"));
+	ComboBox_AddString(hwndLayoutMode, _T("Verticale"));
+	ComboBox_AddString(hwndLayoutMode, _T("Orizzontale"));
 	ComboBox_SetCurSel(hwndLayoutMode, g_layoutMode);
 	::SetDlgItemInt(dialog, IDC_ROW_COUNT, g_rowCount, FALSE);
 	::SetDlgItemInt(dialog, IDC_COL_COUNT, g_colCount, FALSE);

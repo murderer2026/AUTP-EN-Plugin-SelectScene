@@ -1,10 +1,11 @@
 ﻿#pragma once
 
 #include "Resource.h"
+#include <Common/Dialog.h>
 
 //---------------------------------------------------------------------
 
-class ConfigDialog : public Dialog
+class ConfigDialog : public Tools::Dialog
 {
 public:
 	ConfigDialog(HWND hwnd);
