@@ -3,7 +3,7 @@
 ## The original plugin is by [hebiiro](https://github.com/hebiiro/AviUtl-Plugin-SelectScene), all credits go to him. 
 
 ## Note:
-This plugin will only work if your Exedit window has one of the following names: Adv.Edit, Advanced Editing
+This plugin will only work if your ExEdit window has one of the following names: Adv.Edit, Advanced Editing
 
 ### This plugin is part of AUTP
 
