@@ -118,7 +118,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Redlean\Documents\aviutl_exedit_sdk-master</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Murderer\Documents\deps</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -131,7 +131,7 @@
       <AdditionalLibraryDirectories>../../</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /B /Y "$(TargetDir)$(TargetFileName)" "C:\AviUtl110\Plugins\$(TargetName).auf"</Command>
+      <Command>copy /B /Y "$(TargetDir)$(TargetFileName)" "C:\Users\Murderer\Desktop\AviUtl(EN)\Plugins\$(TargetName).auf"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -142,7 +142,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Redlean\Documents\aviutl_exedit_sdk-master</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Murderer\Documents\deps</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>

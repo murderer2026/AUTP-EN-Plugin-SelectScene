@@ -140,20 +140,25 @@ BOOL func_WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam, AviUtl:
 						// button has been pressed to lets change scene
 
 						// seeing if filter is there
-						AviUtl::FilterPlugin* exeditFilter = g_auin.GetFilter(fp, "Adv.Edit");
+						constexpr const char* filterNames[] = {
+				"Adv.Edit",
+				"Advanced Editing"
+						};
 
-						if (exeditFilter == nullptr)
-							AviUtl::FilterPlugin* exeditFilter = g_auin.GetFilter(fp, "Advanced Editing");
-						
-						
-						if (exeditFilter == nullptr)
+						AviUtl::FilterPlugin* exeditFilter = nullptr;
+
+						for (const char* name : filterNames) {
+							exeditFilter = g_auin.GetFilter(fp, name);
+							if (exeditFilter != nullptr) break;
+						}
+
+						g_auin.SetScene(g_dragScene, exeditFilter, editp);
+
+						if (exeditFilter == nullptr) {
 							MessageBoxA(hwnd,
 								"Couldn't find an Exedit window with the following titles: Adv.Edit/Advanced Editing",
 								"SelectScene Error", MB_OK | MB_ICONERROR);
-							break;
-						
-						g_auin.SetScene(g_dragScene, exeditFilter, editp);
-
+						}
 						// drawing the aviutl preview window again
 						::PostMessage(hwnd, AviUtl::FilterPlugin::WindowMessage::Command, 0, 0);
 					}
