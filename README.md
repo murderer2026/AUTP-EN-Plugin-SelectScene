@@ -1,12 +1,11 @@
-# Plugin per AviUtl - Selezione rapida delle scene (SelectScene)
+# AviUtl Plugin - Selecting the Scenes instantly (SelectScene)
 
-## Il plugin originale è di [hebiiro](https://github.com/hebiiro/AviUtl-Plugin-SelectScene), tutti i crediti a lui
+## The original plugin is by [hebiiro](https://github.com/hebiiro/AviUtl-Plugin-SelectScene), all credits go to him. 
 
-## Attenzione:
-Questo plugin funzionerà solamente se la vostra finestra di Exedit ha questi nomi: [Mod.Avan](https://github.com/redlean91/aviutl-italian-patch), Adv.Edit, Advanced Editing
+## Note:
+This plugin will only work if your ExEdit window has one of the following names: Adv.Edit, Advanced Editing
 
-### Questo plugin fa parte di AUTP (AviUtl Translation Project)
+### This plugin is part of AUTP
 
-#### Cosa è AUTP?
-A.U.T.P (AviUtl Translation Project) è un progetto che ho iniziato io con degli amici per cercare di portare AviUtl a più lingue possibili per renderlo più facile da usare.
-
+#### What is AUTP
+A.U.T.P (AviUtl Translation Project) is a project started by [redlean91](https://github.com/redlean91) to make AviUtl available in as many languages as possible, so it is easier to use for people in specific languages.
